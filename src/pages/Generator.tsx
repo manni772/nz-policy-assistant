@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import type { Brief } from '../context/AppContext';
 
 export default function Generator() {
   const { apiKey, setApiKey, saveBrief } = useApp();
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const [topic, setTopic] = useState(searchParams.get('topic') || '');
   const [loading, setLoading] = useState(false);
   const [loadingStep, setLoadingStep] = useState('');
