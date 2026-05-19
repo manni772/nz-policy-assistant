@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# NZ Policy Research Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A multi-page React application for researching and generating New Zealand tax and social policy briefs. Built specifically to demonstrate understanding of IRD's policy work programme and Treasury's analytical frameworks.
 
-Currently, two official plugins are available:
+## Live app
+[nz-policy-assistant.vercel.app](https://nz-policy-assistant.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+### Work programme page
+- Browse 12 current and recent IRD policy topics with descriptions and status badges
+- Search and filter by Tax policy or Social policy
+- Click any topic to pre-fill the brief generator
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Brief generator
+- Enter any NZ tax or social policy topic
+- AI generates a structured brief in NZ Cabinet paper format
+- Output includes: problem definition, current policy settings, 3 policy options with pros/cons, analysis applying Treasury's Living Standards Framework, recommendation, and next steps
+- Save briefs to your personal library
+- Export as PDF
 
-## Expanding the ESLint configuration
+### My library
+- All generated briefs saved to localStorage
+- Search saved briefs
+- Select two briefs to compare side by side
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Compare
+- Side by side comparison of any two saved briefs
+- All sections displayed in parallel columns
+- Export comparison as PDF
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Policy frameworks applied
+- Treasury Living Standards Framework (Te Tai Waiora) — four capital stocks
+- IRD policy analysis criteria: efficiency, equity, revenue adequacy, administrative feasibility
+- NZ Cabinet paper structure: problem definition, options, analysis, recommendation, next steps
+- References to NZ legislation including Income Tax Act 2007 and Tax Administration Act 1994
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech stack
+- React 19 + TypeScript
+- React Router for multi-page navigation
+- React Context API for shared state
+- Groq API — llama-3.3-70b-versatile model
+- Vite build tool
+- Deployed on Vercel
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## How to run locally
+```bash
+git clone https://github.com/manni772/nz-policy-assistant
+cd nz-policy-assistant
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Add your Groq API key in the Brief generator page. Get a free key at [console.groq.com](https://console.groq.com).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Built by
+Manmeet Singh · MBA candidate, Victoria University of Wellington  
+[Portfolio](https://manni772.github.io/Portfolio) · [GitHub](https://github.com/manni772)
